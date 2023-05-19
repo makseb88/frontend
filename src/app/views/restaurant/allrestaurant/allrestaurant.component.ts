@@ -27,7 +27,8 @@ export class AllrestaurantComponent  {
   //     console.log(this.studentData)
   //   });
   // }
-  settings = {	
+  settings = {
+   
     columns: {
       id: {
         title: 'ID',
@@ -43,6 +44,9 @@ export class AllrestaurantComponent  {
       }
       
     },
+    // action:{
+    //   add :false,
+    // },
     delete: {
       confirmDelete: true,
 

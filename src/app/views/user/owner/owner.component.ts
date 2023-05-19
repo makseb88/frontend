@@ -14,21 +14,29 @@ export class OwnerComponent {
   source: ServerDataSource;
 
   constructor(http: HttpClient) {
-    this.source = new ServerDataSource(http, { endPoint: '/assets/restaurant.json' });
+    this.source = new ServerDataSource(http, { endPoint: '/assets/owner.json' });
   }
     settings = {	
     columns: {
       id: {
         title: 'ID',
+        width: "20%"
       },
-      Restaurant: {
-        title: 'Restaurant'
+      firstName: {
+        title: 'firstName',
+        width: "20%"
       },
-      Adresse: {
-        title: 'Adresse'
+      lastName: {
+        title: 'lastName',
+        width: "20%"
+      },
+      email: {
+        title: 'email',
+        width: "20%"
       },
       status: {
-        title: 'status'
+        title: 'status',
+        width: "20%"
       }
       
     },

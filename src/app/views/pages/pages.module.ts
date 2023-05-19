@@ -8,6 +8,12 @@ import { Page404Component } from './page404/page404.component';
 import { Page500Component } from './page500/page500.component';
 import { ButtonModule, CardModule, FormModule, GridModule } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
+import { FormsModule } from '@angular/forms';
+import { LoginService } from './login/login.service';
+import { HttpClientModule } from '@angular/common/http';
+
+
+
 
 
 @NgModule({
@@ -16,15 +22,24 @@ import { IconModule } from '@coreui/icons-angular';
     RegisterComponent,
     Page404Component,
     Page500Component
+
+  ],
+  providers: [
+    // Other providers
+    LoginService
   ],
   imports: [
+
+    HttpClientModule,
     CommonModule,
     PagesRoutingModule,
     CardModule,
     ButtonModule,
     GridModule,
     IconModule,
-    FormModule
+    FormModule,
+    FormsModule,
+    
   ]
 })
 export class PagesModule {
