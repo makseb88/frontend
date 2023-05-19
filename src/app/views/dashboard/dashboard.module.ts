@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { User } from '../../../app/modles/user';
 import {
   AvatarModule,
   ButtonGroupModule,
@@ -45,4 +45,17 @@ import { WidgetsModule } from '../widgets/widgets.module';
   declarations: [DashboardComponent]
 })
 export class DashboardModule {
+  user!: User;
+
+  constructor() {}
+
+  ngOnInit(): void {
+    // Retrieve user information from session storage
+    const storedUser = sessionStorage.getItem('user');
+    if (storedUser) {
+      this.user = JSON.parse(storedUser);
+      console.log("hi");
+      console.log(this.user);
+    }
+  }
 }

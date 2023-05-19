@@ -1,3 +1,5 @@
+
+
 <div class="bg-light min-vh-100 d-flex flex-row align-items-center">
   <c-container>
     <c-row class="justify-content-center">
@@ -27,6 +29,10 @@
                     type="password"
                   />
                 </c-input-group>
+             
+                <div *ngIf="errorMessage" class="error-message">
+                  {{ errorMessage }}
+                </div>
                 <c-row>
                   <c-col xs="6">
                     <button cButton class="px-4" color="primary"  type="submit">
@@ -41,6 +47,10 @@
                 </c-row>
               </form>
             </c-card-body>
+         
+            <div  *ngIf="errorMessage" class="alert alert-danger" role="alert">
+              {{ errorMessage }}
+            </div>
           </c-card>
           <c-card [ngStyle]="{'width.%': 44}" class="text-white bg-primary py-5">
             <c-card-body class="text-center">
