@@ -45,6 +45,7 @@ import {
 } from '@coreui/angular';
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
+import { LogoutComponent } from './services/logout/logout.component';
 // import { UserComponent } from './views/user/user.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -58,7 +59,7 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS, ],
+  declarations: [AppComponent, ...APP_CONTAINERS, LogoutComponent, ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

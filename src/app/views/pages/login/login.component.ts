@@ -22,8 +22,8 @@ export class LoginComponent {
           const user = response.user;
           console.log(user);
           // Save user information in session storage
-          sessionStorage.setItem('token', token);
-          sessionStorage.setItem('user', JSON.stringify(user));
+          localStorage.setItem('token', token);
+          localStorage.setItem('user', JSON.stringify(user));
           this.router.navigate(['/dashboard']); // Redirect to the dashboard route
         },
         error => {

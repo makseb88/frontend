@@ -8,11 +8,11 @@ export class AuthService {
     // Implement your authentication logic here
     // Check if the user is logged in or has a valid session
     // Return true if the user is authenticated, false otherwise
-    const token = sessionStorage.getItem('token');
+    const token = localStorage.getItem('token');
     return !!token; // Assuming a token is present in the session storage
   }
   logout(): void {
     // Clear session storage
-    sessionStorage.clear();
+    localStorage.clear();
   }
 }

@@ -7,6 +7,8 @@ import { Page500Component } from './views/pages/page500/page500.component';
 import { LoginComponent } from './views/pages/login/login.component';
 import { RegisterComponent } from './views/pages/register/register.component';
 import { AuthGuard } from '../app/services/AuthGuard ';
+import { AuthGuardLoggedOut } from '../app/services/AuthGuardLoggedOut';
+import { LogoutComponent } from '../app/services/logout/logout.component';
 const routes: Routes = [
   {
     path: '',
@@ -27,6 +29,7 @@ const routes: Routes = [
         loadChildren: () =>
           import('./views/dashboard/dashboard.module').then((m) => m.DashboardModule )
       },
+      { path: 'logout', component: LogoutComponent }, // Add this route for the logout component
       {
         path: 'user',
         loadChildren: () =>
@@ -106,6 +109,7 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [AuthGuardLoggedOut],
     data: {
       title: 'Login Page'
     }
@@ -113,6 +117,7 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+    canActivate: [AuthGuardLoggedOut],
     data: {
       title: 'Register Page'
     }
