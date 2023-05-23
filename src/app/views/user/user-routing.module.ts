@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {OwnerComponent} from './owner/owner.component';
 import { ProfilComponent } from './profils/profil/profil.component';
+import { AddOwnerComponent } from './add-owner/add-owner.component';
 const routes: Routes = [
   {
     path: '',
@@ -19,6 +20,13 @@ const routes: Routes = [
         component: OwnerComponent,
         data: {
           title: 'Owner'
+        }
+      },
+      {
+        path: 'addOwner',
+        component: AddOwnerComponent,
+        data: {
+          title: 'addOwner'
         }
       },
       {

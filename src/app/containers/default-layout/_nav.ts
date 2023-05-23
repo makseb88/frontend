@@ -16,8 +16,12 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cil-user' },
     children: [
       {
-        name: 'Owners',
+        name: 'list owners',
         url: '/user/owner'
+      },
+      {
+        name: 'add owner',
+        url: '/user/addOwner'
       },
 
     ]

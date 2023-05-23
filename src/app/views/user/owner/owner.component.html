@@ -1,51 +1,82 @@
+<div class="d-flex justify-content-end mb-3">
+    <button type="button" class="btn btn-primary" (click)="addOwner()">Add Owner</button>
+  </div>
 
 
-
-
-    <div class="table-responsive">
-        <table class="table align-middle mb-0 bg-white">
-            <thead class="bg-light">
-              <tr>
+<div class="table-responsive">
+    <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+            <tr>
                 <th>Name</th>
-                <th>Title</th>
+                <th>Phone Number</th>
                 <th>Status</th>
-                <th>Position</th>
+                <th>Stores</th>
                 <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let owner of owners ">
                 <td>
-                  <div class="d-flex align-items-center">
-                    <img
-                        src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-                        alt=""
-                        style="width: 45px; height: 45px"
-                        class="rounded-circle"
-                        />
-                    <div class="ms-3">
-                      <p class="fw-bold mb-1">John Doe</p>
-                      <p class="text-muted mb-0">john.doe@gmail.com</p>
+                    <div class="d-flex align-items-center">
+                        <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                            style="width: 45px; height: 45px" class="rounded-circle" />
+                        <div class="ms-3">
+                            <p class="fw-bold mb-1">{{ owner.firstName }} {{ owner.lastName }}</p>
+                            <p class="text-muted mb-0">{{ owner.email }}</p>
+                        </div>
                     </div>
-                  </div>
                 </td>
                 <td>
-                  <p class="fw-normal mb-1">Software engineer</p>
-                  <p class="text-muted mb-0">IT department</p>
+                    <p class="fw-normal mb-1">{{ owner.phoneNumber }}</p>
                 </td>
                 <td>
-                    <c-badge color="primary" shape="rounded-pill">Active</c-badge>                </td>
-                <td>Senior</td>
-                <td>
-                    <button
-                    type="button"
-                    class="btn btn-link btn-rounded btn-sm fw-bold"
-                    mdbRipple rippleColor="dark"
-                    >
-              Edit
-            </button>
+                    <c-badge *ngIf="owner.status === 'active'" color="primary" shape="rounded-pill">Active</c-badge>
+                    <c-badge *ngIf="owner.status === 'pending'" color="warning" shape="rounded-pill">Pending</c-badge>
+                    <c-badge *ngIf="owner.status === 'suspended'" color="danger"
+                        shape="rounded-pill">Suspended</c-badge>
                 </td>
-              </tr>
-            </tbody>
-          </table>
+
+                <td>{{ owner.stores.length }}</td>
+                <td>
+                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold"
+                        (click)="openModal(ownerModal, owner)">
+                        Show
+                    </button>
+
+                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" (click)="disableOwner(owner)">
+                        Disable
+                    </button>
+
+                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" (click)="enableOwner(owner)">
+                        Enable
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="d-flex justify-content-center mt-4">
+    <ngb-pagination
+      [(page)]="currentPage"
+      [pageSize]="pageSize"
+      [collectionSize]="owners.length"
+      [boundaryLinks]="true"
+      aria-label="Pagination"
+    ></ngb-pagination>
+  </div>
+
+<ng-template #ownerModal>
+    <div class="modal-header">
+        <h4 class="modal-title">Owner Details</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
+    <div class="modal-body" *ngIf="selectedOwner">
+        <p>Name: {{ selectedOwner.firstName }} {{ selectedOwner.lastName }}</p>
+        <p>Email: {{ selectedOwner.email }}</p>
+        <p>Phone Number: {{ selectedOwner.phoneNumber }}</p>
+        <p>Status: {{ selectedOwner.status }}</p>
+    </div>
+</ng-template>

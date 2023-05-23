@@ -9,13 +9,24 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ProfilComponent } from './profils/profil/profil.component';
 import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { BadgeModule } from '@coreui/angular';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddOwnerComponent } from './add-owner/add-owner.component';
+import { FormsModule } from '@angular/forms';
+
+
+
+
+
+
+
 
 
 
 @NgModule({
   declarations: [
     OwnerComponent,
-    ProfilComponent
+    ProfilComponent,
+    AddOwnerComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +40,11 @@ import { BadgeModule } from '@coreui/angular';
     Ng2SmartTableModule,
     HttpClientModule,
     MdbTabsModule,
-    BadgeModule    
+    BadgeModule,
+    NgbPaginationModule,
+    FormsModule
+    
+        
     
   ],
   providers: [

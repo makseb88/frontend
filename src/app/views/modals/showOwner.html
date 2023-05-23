@@ -1,0 +1,16 @@
+<ng-template #ownerModal let-owner>
+    <div class="modal-header">
+      <h4 class="modal-title">Owner Details</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <!-- Add owner details here -->
+      <p>Name: {{ owner.firstName }} {{ owner.lastName }}</p>
+      <p>Email: {{ owner.email }}</p>
+      <p>Phone Number: {{ owner.phoneNumber }}</p>
+      <!-- Customize the modal content as per your requirements -->
+    </div>
+  </ng-template>
+  

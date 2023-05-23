@@ -9,6 +9,6 @@ export interface User {
     createdAt: Date;
     status: String;
     image:String;
-    stores:String;
+    stores:String[];
     
   }
