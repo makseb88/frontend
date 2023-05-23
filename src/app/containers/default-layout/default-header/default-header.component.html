@@ -48,7 +48,9 @@
     <c-header-nav class="ms-3">
       <ng-container *ngTemplateOutlet="userDropdown"></ng-container>
     </c-header-nav>
-
+    <div>
+      Welcome, {{ user.firstName }}!
+    </div>
   </c-container>
   <c-header-divider></c-header-divider>
   <c-container [fluid]="true">

@@ -6,10 +6,12 @@ import { UserRoutingModule } from './user-routing.module';
 import { OwnerComponent } from './owner/owner.component';
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { ProfilComponent } from './profils/profil/profil.component';
 
 @NgModule({
   declarations: [
-    OwnerComponent
+    OwnerComponent,
+    ProfilComponent
   ],
   imports: [
     CommonModule,
