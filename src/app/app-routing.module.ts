@@ -36,6 +36,11 @@ const routes: Routes = [
           import('./views/user/user.module').then((m) => m.UserModule)
       },
       {
+        path: 'profiles',
+        loadChildren: () =>
+          import('./views/profils/profils.module').then((m) => m.ProfilsModule)
+      },
+      {
         path: 'restaurant',
         loadChildren: () =>
           import('./views/restaurant/restaurant.module').then((m) => m.RestaurantModule)

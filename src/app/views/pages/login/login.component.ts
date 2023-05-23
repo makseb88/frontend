@@ -116,6 +116,7 @@ export class LoginComponent {
             // Assign other user properties as needed
           };
           console.log(user);
+          console.log(token);
           // Save user information in session storage
           localStorage.setItem('token', token);
           localStorage.setItem('user', JSON.stringify(user));
