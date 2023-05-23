@@ -208,42 +208,42 @@ export const navItems: INavData[] = [
   //     }
   //   ]
   // },
-  // {
-  //   name: 'Notifications',
-  //   url: '/notifications',
-  //   iconComponent: { name: 'cil-bell' },
-  //   children: [
-  //     {
-  //       name: 'Alerts',
-  //       url: '/notifications/alerts'
-  //     },
-  //     {
-  //       name: 'Badges',
-  //       url: '/notifications/badges'
-  //     },
-  //     {
-  //       name: 'Modal',
-  //       url: '/notifications/modal'
-  //     },
-  //     {
-  //       name: 'Toast',
-  //       url: '/notifications/toasts'
-  //     }
-  //   ]
-  // },
-  // {
-  //   name: 'Widgets',
-  //   url: '/widgets',
-  //   iconComponent: { name: 'cil-calculator' },
-  //   badge: {
-  //     color: 'info',
-  //     text: 'NEW'
-  //   }
-  // },
-  // {
-  //   title: true,
-  //   name: 'Extras'
-  // },
+  {
+    name: 'Notifications',
+    url: '/notifications',
+    iconComponent: { name: 'cil-bell' },
+    children: [
+      {
+        name: 'Alerts',
+        url: '/notifications/alerts'
+      },
+      {
+        name: 'Badges',
+        url: '/notifications/badges'
+      },
+      {
+        name: 'Modal',
+        url: '/notifications/modal'
+      },
+      {
+        name: 'Toast',
+        url: '/notifications/toasts'
+      }
+    ]
+  },
+  {
+    name: 'Widgets',
+    url: '/widgets',
+    iconComponent: { name: 'cil-calculator' },
+    badge: {
+      color: 'info',
+      text: 'NEW'
+    }
+  },
+  {
+    title: true,
+    name: 'Extras'
+  },
   {
     name: 'Pages',
     url: '/login',
