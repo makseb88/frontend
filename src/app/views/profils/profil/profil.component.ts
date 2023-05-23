@@ -44,9 +44,11 @@ console.log('token')
       console.log("error");
     }
   }
+ 
   updateProfile(): void {
     const token = localStorage.getItem('token'); // Retrieve the token from storage
-  
+    const storedData = localStorage.getItem('key');
+
     if (token) {
     this.profileService.updateProfile(this.firstName,this.lastName, this.phoneNumber,token)
       .subscribe(
@@ -54,6 +56,18 @@ console.log('token')
           // Handle successful profile update response
           console.log(response);
           
+          var currentUser = JSON.parse(localStorage.getItem('user')!);
+          currentUser.firstName=this.firstName;
+          currentUser.lastName=this.lastName;
+          currentUser.phoneNumber=this.phoneNumber;
+          localStorage.setItem('user', JSON.stringify(currentUser));
+
+
+
+          console.log(currentUser);
+
+
+      
 
         },
         error => {

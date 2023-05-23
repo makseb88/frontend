@@ -16,7 +16,7 @@
               <c-modal id="liveDemoModal" [visible]="visible" (visibleChange)="handleLiveDemoChange($event)">
                 <form cForm>
                 <c-modal-header>
-                  <h5 cModalTitle>Modal title</h5>
+                  <h5 cModalTitle>Update</h5>
                   <button (click)="toggleLiveDemo()" cButtonClose></button>
                 </c-modal-header>
                 <c-modal-body>
@@ -24,11 +24,12 @@
                   <div class="mb-3">
                      <label cLabel for="exampleFormControlInput1" class="left">first Name</label>
                     <input aria-label="default input example"
+                    value="{{user.firstName}}"
                     [(ngModel)]="firstName"
                     cFormControl
                     placeholder="Default input"
                     type="text"
-                    value="{{user.firstName}}"
+                    
                     [ngModelOptions]="{standalone: true}">
                
                   </div>
