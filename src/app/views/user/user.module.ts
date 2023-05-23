@@ -6,6 +6,10 @@ import { UserRoutingModule } from './user-routing.module';
 import { OwnerComponent } from './owner/owner.component';
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
+import { BadgeModule } from '@coreui/angular';
+
+
 
 @NgModule({
   declarations: [
@@ -22,6 +26,8 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     IconModule,
     Ng2SmartTableModule,
     HttpClientModule,
+    MdbTabsModule,
+    BadgeModule    
     
   ],
   providers: [

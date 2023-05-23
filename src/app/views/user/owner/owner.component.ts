@@ -5,6 +5,7 @@ import { freeSet } from '@coreui/icons';
 import { ServerDataSource } from 'ng2-smart-table';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-owner',
   templateUrl: './owner.component.html',
