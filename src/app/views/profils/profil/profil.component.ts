@@ -12,9 +12,10 @@ import { ProfileService } from '../../../services/profile/ProfileService';
 })
 export class ProfilComponent implements OnInit   {
   user: User = {} as User; // Initialize with an empty User object
-  firstName: string = '';
-  lastName: string = ''; // Initialize with the current name
-  phoneNumber: string = ''; // Initialize with the current phone number
+  currentUser = JSON.parse(localStorage.getItem('user')!);
+  firstName: string = this.currentUser.firstName;
+  lastName: string = this.currentUser.lastName; // Initialize with the current name
+  phoneNumber: string = this.currentUser.phoneNumber; // Initialize with the current phone number
 
 
 constructor( private profileService: ProfileService, private router: Router , private authService: AuthService) {
@@ -33,6 +34,7 @@ constructor( private profileService: ProfileService, private router: Router , pr
   }
 
   ngOnInit( ): void {
+    
      const token = localStorage.getItem('token'); // Retrieve the token from storage
 console.log('token')
     const user = this.authService.getUser();
@@ -65,6 +67,7 @@ console.log('token')
 
 
           console.log(currentUser);
+          window.location.reload();
 
 
       

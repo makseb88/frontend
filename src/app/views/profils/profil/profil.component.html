@@ -1,6 +1,6 @@
 <section style="background-color: #eee;">
   <div class="container py-5">
-  
+
 
     <div class="row">
       <div class="col-lg-4">
@@ -15,55 +15,49 @@
               <button type="button" class="btn btn-primary" (click)="toggleLiveDemo()" cButton>Edit</button>
               <c-modal id="liveDemoModal" [visible]="visible" (visibleChange)="handleLiveDemoChange($event)">
                 <form cForm>
-                <c-modal-header>
-                  <h5 cModalTitle>Update</h5>
-                  <button (click)="toggleLiveDemo()" cButtonClose></button>
-                </c-modal-header>
-                <c-modal-body>
-                 
-                  <div class="mb-3">
-                     <label cLabel for="exampleFormControlInput1" class="left">first Name</label>
-                    <input aria-label="default input example"
-                    value="{{user.firstName}}"
-                    [(ngModel)]="firstName"
-                    cFormControl
-                    placeholder="Default input"
-                    type="text"
+                  <c-modal-header>
+                    <h5 cModalTitle>Update</h5>
+                    <button (click)="toggleLiveDemo()" cButtonClose></button>
+                  </c-modal-header>
+                  <c-modal-body>
                     
-                    [ngModelOptions]="{standalone: true}">
-               
-                  </div>
-                  <div class="mb-3">
-                    <label cLabel for="inputPassword-1">last Name</label>
-                    <input aria-label="default input example"
-                    [(ngModel)]="lastName"
-       cFormControl
-       placeholder="Default input"
-       type="text"
-       value="{{user.lastName}}"
-       [ngModelOptions]="{standalone: true}">
-       
-                  </div>
-                  <div class="mb-3">
-                    <label cLabel for="inputPassword-1">phone Number</label>
-                    <input aria-label="default input example"
-                    [(ngModel)]="phoneNumber"
-       cFormControl
-       placeholder="Default input"
-       type="text"
-       value="{{user.phoneNumber}}"
-       [ngModelOptions]="{standalone: true}">
-                  </div>
-             
-            
-               </c-modal-body>
-                <c-modal-footer>
-                  <button (click)="toggleLiveDemo()" cButton color="secondary">
-                    Close
-                  </button>
-                  <button cButton color="primary" (click)="updateProfile()">Save changes</button>
-                </c-modal-footer>
-              </form>
+                    <c-container>
+
+                    <c-row class="align-items-start">
+                      <c-col xs="4">
+                      <label cLabel for="exampleFormControlInput1" class="left">first Name:</label> </c-col>
+                      <c-col xs="8"> <input aria-label="default input example" value="{{user.firstName}}" [(ngModel)]="firstName"
+                        cFormControl placeholder="{{user.firstName}}" type="text" required
+                        [ngModelOptions]="{standalone: true}"></c-col>
+                
+
+                   
+                  </c-row>
+                  <c-row class="align-items-start">
+                    
+                      <c-col xs="4"> <label cLabel for="inputPassword-1">last Name:</label></c-col>
+                      <c-col xs="8"> <input aria-label="default input example" [(ngModel)]="lastName" cFormControl
+                        placeholder="{{user.lastName}}" type="text" value="{{user.lastName}}" required
+                        [ngModelOptions]="{standalone: true}"></c-col>
+
+                    
+                    </c-row>
+                    <c-row class="align-items-start">
+                      <c-col xs="4"> <label cLabel for="inputPassword-1">phone Number</label></c-col>
+                      <c-col xs="8"><input cFormControl aria-label="default input example" required="required" [(ngModel)]="phoneNumber"
+                        placeholder="{{user.phoneNumber}}" type="text" value="{{user.phoneNumber}}" required
+                        [ngModelOptions]="{standalone: true}"></c-col>
+                    </c-row>
+
+                  </c-container>
+                  </c-modal-body>
+                  <c-modal-footer>
+                    <button (click)="toggleLiveDemo()" cButton color="secondary">
+                      Close
+                    </button>
+                    <button cButton color="primary" (click)="updateProfile()">Save changes</button>
+                  </c-modal-footer>
+                </form>
               </c-modal>
               <!-- <button type="button" class="btn btn-outline-primary ms-1">Message</button> -->
             </div>
@@ -117,7 +111,7 @@
               </div>
             </div>
             <hr>
-           
+
             <div class="row">
               <div class="col-sm-3">
                 <p class="mb-0">Mobile</p>
