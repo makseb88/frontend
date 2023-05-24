@@ -47,8 +47,6 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
     FormsModule,
     NgxPaginationModule
     
-    
-    
         
     
   ],
