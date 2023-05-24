@@ -21,8 +21,8 @@
                   <!-- <input autoComplete="username"  [(ngModel)]="email" [ngModelOptions]="{standalone: true}" cFormControl placeholder="Username" /> -->
                 </c-input-group>
                 <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="error">
-                  <div *ngIf="emailInput.errors?.['required']">Email is required.</div>
-                  <div *ngIf="emailInput.errors?.['email']">Invalid email format.</div>
+                  <div class="text-danger" *ngIf="emailInput.errors?.['required']">Email is required.</div>
+                  <div class="text-danger" *ngIf="emailInput.errors?.['email']">Invalid email format.</div>
                 </div>
                 <c-input-group class="mb-4">
                   <span cInputGroupText>
@@ -40,13 +40,11 @@
     
                 </c-input-group>
                 <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error">
-                  <div *ngIf="passwordInput.errors?.['required']">Password is required.</div>
-                  <div *ngIf="passwordInput.errors?.['minlength']">Password must be at least 6 characters long.</div>
+                  <div class="text-danger" *ngIf="passwordInput.errors?.['required']">Password is required.</div>
+                  <div class="text-danger" *ngIf="passwordInput.errors?.['minlength']">Password must be at least 6 characters long.</div>
                 </div>
               
-                <div *ngIf="errorMessage" class="error-message">
-                  {{ errorMessage }}
-                </div>
+          
                 <c-row>
                   <c-col xs="6">
                     <button cButton class="px-4" color="primary"  type="submit">
