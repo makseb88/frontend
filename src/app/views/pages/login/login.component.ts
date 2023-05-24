@@ -105,7 +105,7 @@ export class LoginComponent {
             _id: userData._id,
             firstName: userData.firstName,
             lastName: userData.lastName,
-            email: userData.firstName,
+            email: userData.email,
             password: userData.password,
             phoneNumber: userData.phoneNumber,
             role: userData.role,

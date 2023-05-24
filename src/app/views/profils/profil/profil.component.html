@@ -14,14 +14,55 @@
             <div class="d-flex justify-content-center mb-2">
               <button type="button" class="btn btn-primary" (click)="toggleLiveDemo()" cButton>Edit</button>
               <c-modal id="liveDemoModal" [visible]="visible" (visibleChange)="handleLiveDemoChange($event)">
-                <form cForm>
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                   <c-modal-header>
                     <h5 cModalTitle>Update</h5>
                     <button (click)="toggleLiveDemo()" cButtonClose></button>
+                   
+
                   </c-modal-header>
                   <c-modal-body>
-                    
                     <c-container>
+
+                          
+                            <c-row >
+                              
+                                <c-col xs="4"> <label>First Name</label></c-col>
+                                <c-col xs="8"><input type="text" formControlName="firstName" [(ngModel)]="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }" />
+                                <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['firstName'].errors['required']">First Name is required</div>
+                                </div>
+                                </c-col>
+                           
+                            </c-row>
+                            <br>
+                            <c-row >
+
+                              <c-col xs="4"><label>last Name</label></c-col>
+                              <c-col xs="8"><input type="text" formControlName="lastName" [(ngModel)]="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }" />
+                              <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
+                                  <div *ngIf="f['lastName'].errors['required']">Last Name is required</div>
+                              </div>
+                            </c-col>
+                         </c-row>
+                         <br>
+                         <c-row >
+                          <c-col xs="4"><label>phone Number</label></c-col>
+                            <c-col xs="8"><input type="text" formControlName="phoneNumber" [(ngModel)]="phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['phoneNumber'].errors }" />
+                            <div *ngIf="submitted && f['phoneNumber'].errors" class="invalid-feedback">
+                                <div *ngIf="f['phoneNumber'].errors['required']">Phone Number is required</div>
+                            </div>
+                          </c-col>
+                         </c-row>
+                    
+                  
+                 
+                      <div class="text-center">
+                         
+                      </div>
+                      </c-container>
+                
+                    <!-- <c-container>
 
                     <c-row class="align-items-start">
                       <c-col xs="4">
@@ -49,15 +90,17 @@
                         [ngModelOptions]="{standalone: true}"></c-col>
                     </c-row>
 
-                  </c-container>
+                  </c-container> -->
                   </c-modal-body>
                   <c-modal-footer>
-                    <button (click)="toggleLiveDemo()" cButton color="secondary">
+                    <button class="btn btn-primary mr-1">Save changes</button>
+                    <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                    <!-- <button (click)="toggleLiveDemo()" cButton color="secondary">
                       Close
                     </button>
-                    <button cButton color="primary" (click)="updateProfile()">Save changes</button>
+                    <button cButton color="primary" (click)="onSubmit">Save changes</button> -->
                   </c-modal-footer>
-                </form>
+                 </form>
               </c-modal>
               <!-- <button type="button" class="btn btn-outline-primary ms-1">Message</button> -->
             </div>
