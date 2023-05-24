@@ -30,9 +30,10 @@ export class OwnerComponent implements OnInit  {
   owners: User[] = [];
   modalRef!: BsModalRef;
   selectedOwner: User | null = null;
-  pageSize = 5; // Nombre d'éléments à afficher par page
-  currentPage = 1; // Page courante
-  totalOwners = 0; // Total des propriétaires
+  pageSize:number = 7;
+  currentPage = 1;
+  totalOwners:any;
+  p:number =1;
 
 
   private apiUrl =environment.serverUrl + '/admin/getOwners';
@@ -40,35 +41,46 @@ export class OwnerComponent implements OnInit  {
 
 
   constructor(private http: HttpClient, private iconSet: IconSetService, private modalService: BsModalService, private paginationConfig: NgbPaginationConfig, private router: Router) { 
-    iconSet.icons = { cilYen, cilPlus };
-    this.paginationConfig.pageSize = this.pageSize;
-    this.paginationConfig.boundaryLinks = true;
-
+    // ...
+    paginationConfig.pageSize = 5;
+    paginationConfig.boundaryLinks = true;
   }
- 
+
+  
   ngOnInit(): void {
-    this.getOwners();
+    this.currentPage = 2; // Set the initial current page
+    this.onPageChange(this.currentPage); // Call onPageChange to retrieve owners for the initial page
   }
-
+  
 
 
   getOwners(): void {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-  
-    // Calculer l'indice de départ pour la pagination
     const startIndex = (this.currentPage - 1) * this.pageSize;
   
     this.http.get<any>(`${this.apiUrl}?startIndex=${startIndex}&pageSize=${this.pageSize}`, { headers }).subscribe(
       (response: any) => {
         this.owners = response.owners;
-        this.totalOwners = response.totalOwners;
+        this.totalOwners = response.ownerCount;
+        console.log(this.totalOwners);
       },
       (error: any) => {
         console.error(error);
       }
     );
   }
+  
+  
+  
+
+  
+  onPageChange(page: number): void {
+    this.currentPage = page;
+    this.getOwners();
+  }
+
+ 
 
   addOwner(): void {
     this.router.navigate(['/user/addOwner']);

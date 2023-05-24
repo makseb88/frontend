@@ -1,6 +1,9 @@
 <div class="d-flex justify-content-end mb-3">
     <button type="button" class="btn btn-primary" (click)="addOwner()">Add Owner</button>
-  </div>
+</div>
+
+
+
 
 
 <div class="table-responsive">
@@ -15,7 +18,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let owner of owners ">
+            <tr *ngFor="let owner of owners | paginate: { itemsPerPage: pageSize, currentPage: p }">
                 <td>
                     <div class="d-flex align-items-center">
                         <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
@@ -57,14 +60,9 @@
 </div>
 
 <div class="d-flex justify-content-center mt-4">
-    <ngb-pagination
-      [(page)]="currentPage"
-      [pageSize]="pageSize"
-      [collectionSize]="owners.length"
-      [boundaryLinks]="true"
-      aria-label="Pagination"
-    ></ngb-pagination>
-  </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+</div>
 
 <ng-template #ownerModal>
     <div class="modal-header">
