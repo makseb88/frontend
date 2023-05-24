@@ -10,5 +10,6 @@ export interface User {
     status: String;
     image:String;
     stores:String[];
+    sexe:String;
     
   }

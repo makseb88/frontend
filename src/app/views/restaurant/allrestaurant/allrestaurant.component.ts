@@ -1,6 +1,9 @@
-import { Component,OnInit,NgModule  } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ServerDataSource } from 'ng2-smart-table';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/app/environments/environment';
+import { Store } from 'src/app/modles/store';
+
 
 @Component({
   selector: 'app-allrestaurant',
@@ -8,104 +11,33 @@ import { ServerDataSource } from 'ng2-smart-table';
   styleUrls: ['./allrestaurant.component.scss']
 })
 
-export class AllrestaurantComponent  {
- 
-  source: ServerDataSource;
+export class AllrestaurantComponent implements OnInit {
+  stores: Store[] = [];
 
-  constructor(http: HttpClient) {
-    this.source = new ServerDataSource(http, { endPoint: '/assets/restaurant.json' });
-  }
-  // title = 'json-read-example';
-  // studentData:any;
-  // url: string = '/assets/students.json';
+  searchForm!: FormGroup;
+  restaurants: any[] = [];
+  filteredRestaurants!: any[];
+  pageSize = 10;
+  p = 1;
+  private apiUrl = environment.serverUrl + '/admin/getAllStores';
 
-  // constructor(private http: HttpClient) {}
 
-  // ngOnInit() {
-  //   this.http.get(this.url).subscribe(res => {
-  //     this.studentData = res;
-  //     console.log(this.studentData)
-  //   });
-  // }
-  settings = {
-   
-    columns: {
-      id: {
-        title: 'ID',
+  constructor(private http: HttpClient) { }
+
+  ngOnInit() {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+  
+    this.http.get<any>(this.apiUrl, { headers }).subscribe(
+      (response: any) => {
+        this.restaurants = response.stores;
+        this.filteredRestaurants = [...this.restaurants];
       },
-      Restaurant: {
-        title: 'Restaurant'
-      },
-      Adresse: {
-        title: 'Adresse'
-      },
-      status: {
-        title: 'status'
+      (error) => {
+        console.error(error);
+        // Gérez l'erreur
       }
-      
-    },
-    // action:{
-    //   add :false,
-    // },
-    delete: {
-      confirmDelete: true,
-
-      deleteButtonContent: 'Delete',
-      saveButtonContent: 'save',
-      cancelButtonContent: 'cancel'
-    },
-   
-    add: {
-      confirmCreate: true,
-      
-    },
-    edit: {
-      confirmSave: true,
-    },
-  };
-
-  // data = [
-  //   {
-  //     id: 1,
-  //     Restaurant: "Leanne Graham",
-  //     Adresse: "Bret",
-  //     status: "Sincere@april.biz"
-  //   },
-  //   {
-  //     id: 2,
-  //     Restaurant: "Ervin Howell",
-  //     Adresse: "Antonette",
-  //     status: "Shanna@melissa.tv"
-  //   },
-    
-
-    
-  //   {
-  //     id: 11,
-  //     Restaurant: "Nicholas DuBuque",
-  //     Adresse: "Nicholas.Stanton",
-  //     status: "Rey.Padberg@rosamond.biz"
-  //   }
-  // ];
-  onDeleteConfirm(event:any) {
-    console.log("Delete Event In Console")
-    console.log(event);
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
-  }
-
-  onCreateConfirm(event:any) {
-    console.log("Create Event In Console")
-    console.log(event);
-
-  }
-
-  onSaveConfirm(event:any) {
-    console.log("Edit Event In Console")
-    console.log(event);
+    );
   }
 
 }

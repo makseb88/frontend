@@ -13,6 +13,7 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddOwnerComponent } from './add-owner/add-owner.component';
 import { FormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -45,7 +46,8 @@ import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
     BadgeModule,
     NgbPaginationModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule
     
         
     

@@ -113,6 +113,7 @@ export class LoginComponent {
             status: userData.status,
             image: userData.image,
             stores: userData.stores,
+            sexe: userData.sexe
            
             // Assign other user properties as needed
           };
