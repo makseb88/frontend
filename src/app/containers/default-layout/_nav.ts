@@ -27,13 +27,13 @@ export const navItems: INavData[] = [
     ]
   },
   {
-    name: 'Restaurant',
-    url: '/restaurant',
+    name: 'Stores',
+    url: '/stores',
     iconComponent: { name: 'cil-user' },
     children: [
       {
-        name: 'All Restaurant',
-        url: '/restaurant/allrestaurant'
+        name: 'All Stores',
+        url: '/stores/allstore'
       },
 
     ]
