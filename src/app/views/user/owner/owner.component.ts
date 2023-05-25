@@ -28,6 +28,8 @@ export class OwnerComponent implements OnInit {
   currentPage = 1;
   totalOwners: any;
   p: number = 1;
+  noResultsFound: boolean = false;
+
 
   private apiUrl = environment.serverUrl + '/admin/getOwners';
   private apiUrl2 = environment.serverUrl + '/admin';
@@ -156,5 +158,7 @@ export class OwnerComponent implements OnInit {
     } else {
       this.filteredOwners = this.owners;
     }
+    this.noResultsFound = this.filteredOwners.length === 0;
+
   }
 }

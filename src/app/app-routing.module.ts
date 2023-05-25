@@ -41,7 +41,7 @@ const routes: Routes = [
           import('./views/profils/profils.module').then((m) => m.ProfilsModule)
       },
       {
-        path: 'restaurant',
+        path: 'stores',
         loadChildren: () =>
           import('./views/restaurant/restaurant.module').then((m) => m.RestaurantModule)
       },

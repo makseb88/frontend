@@ -5,7 +5,7 @@ import { AllrestaurantComponent } from './allrestaurant/allrestaurant.component'
 const routes: Routes = [{
   path: '',
   data: {
-    title: 'restaurant'
+    title: 'Stores'
   },
   children: [
     {
@@ -14,10 +14,10 @@ const routes: Routes = [{
       redirectTo: 'restaurant'
     },
     {
-      path: 'allrestaurant',
+      path: 'allstore',
       component: AllrestaurantComponent,
       data: {
-        title: 'All Restaurant'
+        title: 'All Stores'
       }
     },
     
