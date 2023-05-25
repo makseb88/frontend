@@ -14,8 +14,10 @@ import { AddOwnerComponent } from './add-owner/add-owner.component';
 import { FormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastModule,ProgressModule,SpinnerModule  } from '@coreui/angular';
 
-
+import { ImgModule } from '@coreui/angular';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -32,6 +34,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     AddOwnerComponent
   ],
   imports: [
+    SpinnerModule,
+    ProgressModule,
+    ImgModule,
+    ToastModule,
     CommonModule,
     UserRoutingModule,
     TableModule,

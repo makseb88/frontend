@@ -42,11 +42,11 @@
               Show
             </button>
   
-            <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" (click)="disableOwner(owner)">
+            <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" (click)="confirmatioDisableOwner(owner)">
               Disable
             </button>
   
-            <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" (click)="enableOwner(owner)">
+            <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" (click)="confirmationIonenableOwner(owner)">
               Enable
             </button>
           </td>
@@ -58,7 +58,9 @@
   <div class="d-flex justify-content-center mt-4">
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
-  
+    
+
+
   <ng-template #ownerModal>
     <div class="modal-header">
       <h4 class="modal-title">Owner Details</h4>

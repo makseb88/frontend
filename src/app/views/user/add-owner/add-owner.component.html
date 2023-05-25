@@ -1,23 +1,78 @@
+<c-toaster [placement]="position" class="p-3" position="fixed">
+  <c-toast
+    (timer)="onTimerChange($event)"
+    [visible]="visible">
+    <c-toast-header>
+      congratulation
+    </c-toast-header>
+    <c-toast-body>
+      <p>Owner successfully added</p>
+  
+      <button cButton class="m-1" style="width: 100%;" disabled>
+        <c-spinner aria-hidden="true" size="sm"></c-spinner>
+        Loading...
+      </button>
+    </c-toast-body>
+  </c-toast>
+</c-toaster>
+<!-- <button (click)="toggleToast()" cButton class="m-1">Send a toast</button> -->
+
 <div class="container py-5 h-100">
+
+  
+ 
   <div class="row justify-content-center align-items-center h-100">
     <div class="col-12 col-lg-9 col-xl-7">
       <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
         <div class="card-body p-4 p-md-5">
+       
           <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add owner</h3>
-          <form (ngSubmit)="addOwner()">
+<!--          
+          <c-modal id="liveDemoModal" [visible]="visible" (visibleChange)="handleLiveDemoChange($event)">
+            <c-modal-header>
+              <h5 cModalTitle align="center">Owner ajouté avec succès</h5>
+              <button (click)="redirect()" cButtonClose></button>
+            </c-modal-header>
+            <c-modal-body>
+              <div class="clearfix">
+                <img cImg align="center" height="200" rounded src="../../../../assets/images/ok.png" width="300" />
+              </div>
+             </c-modal-body>
+            <c-modal-footer>
+              <button (click)=" redirect()" cButton color="secondary">
+                Close
+              </button>
+              
+            </c-modal-footer>
+          </c-modal> -->
+          <form [formGroup]="ownerForm" (ngSubmit)="onSubmit()">
 
             <div class="row">
+               <!-- <label>First Name</label>
+              <input type="text" formControlName="firstName" [(ngModel)]="formData.firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }" />
+              <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+                  <div *ngIf="f['firstName'].errors['required']">First Name is required</div>
+              </div> -->
+              
               <div class="col-md-6 mb-4">
                 <div class="form-outline">
-                  <input type="text" id="firstName" class="form-control form-control-lg" [(ngModel)]="formData.firstName" name="firstName" required>
+                  <input type="text"  formControlName="firstName"  [(ngModel)]="formData.firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }">
                   <label class="form-label" for="firstName">First Name</label>
+                  <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+                    <div *ngIf="f['firstName'].errors['required']">First Name is required</div>
                 </div>
+                </div>
+             
               </div>
               <div class="col-md-6 mb-4">
                 <div class="form-outline">
-                  <input type="text" id="lastName" class="form-control form-control-lg" [(ngModel)]="formData.lastName" name="lastName" required>
+                  <input type="text" id="lastName"  formControlName="lastName"   [(ngModel)]="formData.lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }">
                   <label class="form-label" for="lastName">Last Name</label>
+                  <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
+                    <div *ngIf="f['lastName'].errors['required']">lastName  is required</div>
                 </div>
+                </div>
+               
               </div>
             </div>
 
@@ -25,11 +80,11 @@
               <div class="col-md-6 mb-4">
                 <h6 class="mb-2 pb-1">Gender:</h6>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="sexe" id="femaleGender" [(ngModel)]="formData.sexe" value="female">
+                  <input class="form-check-input" type="radio" name="sexe" id="femaleGender" [(ngModel)]="formData.sexe" [ngModelOptions]="{standalone: true}" value="female">
                   <label class="form-check-label" for="femaleGender">Female</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="sexe" id="maleGender" [(ngModel)]="formData.sexe" value="male">
+                  <input class="form-check-input" type="radio" name="sexe" id="maleGender" [(ngModel)]="formData.sexe" [ngModelOptions]="{standalone: true}" value="male">
                   <label class="form-check-label" for="maleGender">Male</label>
                 </div>
               </div>
@@ -38,14 +93,21 @@
             <div class="row">
               <div class="col-md-6 mb-4 pb-2">
                 <div class="form-outline">
-                  <input type="email" id="emailAddress" class="form-control form-control-lg" [(ngModel)]="formData.email" name="email" required>
+                  <input type="email" id="email"  formControlName="email"  [(ngModel)]="formData.email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
                   <label class="form-label" for="emailAddress">Email</label>
+                  <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                    <div *ngIf="f['email'].errors['required']">email is required</div>
+                    <div *ngIf="f['email'].errors['email']">Email must be a valid email address</div>
+                </div>
                 </div>
               </div>
               <div class="col-md-6 mb-4 pb-2">
                 <div class="form-outline">
-                  <input type="tel" id="phoneNumber" class="form-control form-control-lg" [(ngModel)]="formData.phoneNumber" name="phoneNumber" required>
+                  <input type="tel" id="phoneNumber" formControlName="phoneNumber"  [(ngModel)]="formData.phoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['phoneNumber'].errors }">
                   <label class="form-label" for="phoneNumber">Phone Number</label>
+                  <div *ngIf="submitted && f['phoneNumber'].errors" class="invalid-feedback">
+                    <div *ngIf="f['phoneNumber'].errors['required']">phoneNumber is required</div>
+                </div>
                 </div>
               </div>
             </div>
@@ -53,14 +115,23 @@
             <div class="row">
               <div class="col-md-6 mb-4 pb-2">
                 <div class="form-outline">
-                  <input type="password" id="password" class="form-control form-control-lg" [(ngModel)]="formData.password" name="password" required>
+                  <input type="password" id="password" formControlName="password"  [(ngModel)]="formData.password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
                   <label class="form-label" for="password">Password</label>
+                  <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                    <div *ngIf="f['password'].errors['required']">password is required</div>
+                    <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
+
+                </div>
                 </div>
               </div>
               <div class="col-md-6 mb-4 pb-2">
                 <div class="form-outline">
-                  <input type="password" id="confirmPassword" class="form-control form-control-lg" [(ngModel)]="formData.confirmPassword" name="confirmPassword" required>
+                  <input type="password" id="confirmPassword" formControlName="confirmPassword"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }" >
                   <label class="form-label" for="confirmPassword">Confirm Password</label>
+                  <div *ngIf="submitted && f['confirmPassword'].errors" class="invalid-feedback">
+                  <div *ngIf="f['confirmPassword'].errors['required']">password is required</div>
+                    <div *ngIf="f['confirmPassword'].errors['mustMatch']">Passwords must match</div>
+                    </div>
                 </div>
               </div>
             </div>

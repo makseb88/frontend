@@ -84,6 +84,31 @@ export class OwnerComponent implements OnInit {
     this.selectedOwner = owner;
     this.modalRef = this.modalService.show(template);
   }
+    public visible = false;
+
+
+  confirmationIonenableOwner( owner: User) {
+    let text = "Press a button!\nEither OK or Cancel.";
+    if (confirm(text) == true) {
+      text = "You pressed OK!";
+      this.enableOwner(owner)
+    } else {
+      text = "You canceled!";
+    }
+   
+ 
+  
+  }
+  confirmatioDisableOwner( owner: User)
+  {
+    let text = "Press a button!\nEither OK or Cancel.";
+    if (confirm(text) == true) {
+      text = "You pressed OK!";
+      this.disableOwner(owner)
+    } else {
+      text = "You canceled!";
+    }
+  }
 
   disableOwner(owner: User): void {
     const token = localStorage.getItem('token');
@@ -98,6 +123,7 @@ export class OwnerComponent implements OnInit {
       (error: any) => {
         console.error(error);
       }
+
     );
   }
 
@@ -107,7 +133,7 @@ export class OwnerComponent implements OnInit {
     const ownerId = owner._id;
     owner.status = 'active';
 
-    this.http.put<any>(`${this.apiUrl2}/enableOwner/${ownerId}`, {}, { headers }).subscribe(
+    this.http.put<any>(`${this.apiUrl2}/reactivateOwner/${ownerId}`, {}, { headers }).subscribe(
       (response: any) => {
         console.log(response.message);
       },
