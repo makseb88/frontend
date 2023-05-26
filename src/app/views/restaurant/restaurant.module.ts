@@ -8,13 +8,16 @@ import { BadgeModule } from '@coreui/angular';
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RequestStoreComponent } from './request-store/request-store.component';
+import { TableModule, UtilitiesModule,ModalModule,ButtonModule,FormModule  } from '@coreui/angular';
 
 
 
 
 @NgModule({
   declarations: [
-    AllrestaurantComponent
+    AllrestaurantComponent,
+    RequestStoreComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BadgeModule,
     NgxPaginationModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TableModule, UtilitiesModule,ModalModule,ButtonModule,FormModule
   ]
 })
 export class RestaurantModule   { }

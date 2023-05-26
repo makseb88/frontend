@@ -35,6 +35,11 @@ export const navItems: INavData[] = [
         name: 'All Stores',
         url: '/stores/allstore'
       },
+      {
+        name: 'Request stores',
+        url: '/stores/requeststore'
+      },
+
 
     ]
   },

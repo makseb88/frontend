@@ -23,11 +23,13 @@ export class AllrestaurantComponent implements OnInit {
   p: number = 1;
   private apiUrl = environment.serverUrl + '/admin/getAllStores';
   private apiUrl2 = environment.serverUrl + '/admin/';
+  modalRef!: BsModalRef;
 
   noResultsFound: boolean = false;
   selectedStatus: string = 'all';
 
   constructor(
+    private modalService: BsModalService,
     private http: HttpClient,
     private paginationConfig: NgbPaginationConfig,
     private formBuilder: FormBuilder
@@ -67,6 +69,12 @@ export class AllrestaurantComponent implements OnInit {
       }
     );
   }
+
+
+  openModal() {
+    
+  }
+
 
   searchStores(): void {
     const searchQuery = this.searchForm.get('searchQuery')?.value.toLowerCase();
@@ -108,6 +116,57 @@ export class AllrestaurantComponent implements OnInit {
       this.getStores();
     }
   }
+
+  
+  deleteStore(storeId: string): void {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    this.http.delete<any>(`${environment.serverUrl}/admin/deleteStores/${storeId}`, { headers }).subscribe(
+      (response: any) => {
+        // Suppression réussie, mettez à jour la liste des magasins
+        this.getStores();
+      },
+      (error) => {
+        console.error(error);
+        // Gérez l'erreur
+      }
+    );
+  }
+
+  disableStore(storeId: string): void {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    this.http.put<any>(`${environment.serverUrl}/admin/suspendStores/${storeId}`, null, { headers }).subscribe(
+      (response: any) => {
+        // Suspension réussie, mettez à jour la liste des magasins
+        this.getStores();
+      },
+      (error) => {
+        console.error(error);
+        // Gérez l'erreur
+      }
+    );
+  }
+
+  activateStore(storeId: string): void {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    this.http.put<any>(`${environment.serverUrl}/admin/activateStore/${storeId}`, null, { headers }).subscribe(
+      (response: any) => {
+        // Suspension réussie, mettez à jour la liste des magasins
+        this.getStores();
+      },
+      (error) => {
+        console.error(error);
+        // Gérez l'erreur
+      }
+    );
+  }
+
+
 
 
 }

@@ -17,7 +17,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ToastModule,ProgressModule,SpinnerModule  } from '@coreui/angular';
 
 import { ImgModule } from '@coreui/angular';
-import { ToastrModule } from 'ngx-toastr';
 
 
 

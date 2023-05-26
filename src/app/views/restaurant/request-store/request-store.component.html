@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <form [formGroup]="searchForm" class="d-flex">
+        <input type="text" class="form-control me-2" formControlName="searchQuery" placeholder="Search" (keyup)="searchStores()">
+    </form>
+  </div>
+  
+  <div class="table-responsive">
+    <table class="table align-middle mb-0 bg-white">
+      <thead class="bg-light">
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Owner</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let store of pendingStores">
+          <td>
+            <div class="d-flex align-items-center">
+              <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle" />
+            </div>
+          </td>
+          <td>
+            <p class="fw-normal mb-1">{{ store.name }}</p>
+            <p class="fw-normal mb-1">TEL: {{ store.phoneNumber }}</p>
+          </td>
+          <td style="word-wrap: break-word;">{{ store.description }}</td>
+
+          <td>
+            <c-badge *ngIf="store.status === 'pending'" color="warning" shape="rounded-pill">Pending</c-badge>
+
+          </td>
+       
+          <td>{{ store.ownerName }}</td>
+          <td>
+            <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" (click)="approveStore(store._id)" *ngIf="store.status !== 'rejected'">Approve</button>
+            <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" (click)="rejectStore(store._id)" *ngIf="store.status !== 'rejected'">Reject</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div *ngIf="noResultsFound" class="text-center">Data not found</div>
+  
+  <div class="d-flex justify-content-center mt-4">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  

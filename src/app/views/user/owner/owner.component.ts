@@ -153,7 +153,8 @@ export class OwnerComponent implements OnInit {
         (owner: User) =>
           owner.firstName.toLowerCase().includes(searchQuery) ||
           owner.lastName.toLowerCase().includes(searchQuery) ||
-          owner.email.toLowerCase().includes(searchQuery)
+          owner.email.toLowerCase().includes(searchQuery) ||
+          owner.status.toLowerCase().includes(searchQuery)
       );
     } else {
       this.filteredOwners = this.owners;

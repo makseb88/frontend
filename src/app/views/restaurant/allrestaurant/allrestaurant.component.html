@@ -1,6 +1,7 @@
 <div class="d-flex justify-content-between align-items-center mb-3">
   <form [formGroup]="searchForm" class="d-flex">
-    <input type="text" class="form-control me-2" formControlName="searchQuery" placeholder="Search" (input)="searchStores()">
+    <input type="text" class="form-control me-2" formControlName="searchQuery" placeholder="Search"
+      (input)="searchStores()">
   </form>
   <div>
     <select class="form-select" [(ngModel)]="selectedStatus" (change)="selectedStatusChange()">
@@ -31,7 +32,8 @@
       <tr *ngFor="let restaurant of filteredRestaurants | paginate: { itemsPerPage: pageSize, currentPage: p }">
         <td>
           <div class="d-flex align-items-center">
-            <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded-circle" />
+            <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px"
+              class="rounded-circle" />
           </div>
         </td>
         <td>
@@ -49,15 +51,22 @@
         <td>{{ restaurant.ownerName }}</td>
         <td>
           <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold">Show</button>
-          <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold">Disable</button>
-          <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold">Delete</button>
+          <ng-container *ngIf="restaurant.status !== 'rejected'">
+            <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" (click)="restaurant.status === 'active' ? disableStore(restaurant._id) : activateStore(restaurant._id)">
+              {{ restaurant.status === 'active' ? 'Disable' : 'Enable' }}
+            </button>
+          </ng-container>
+          <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold"
+            (click)="deleteStore(restaurant._id)">Delete</button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<div *ngIf="noResultsFound" class="text-center">Data not found</div>
+<div class="text-center mt-4" *ngIf="noResultsFound">
+  <div class="centered-message">Data not found</div>
+</div>
 
 <div class="d-flex justify-content-center mt-4">
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
