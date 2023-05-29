@@ -1,3 +1,4 @@
+<p>rejected-store works!</p>
 <div class="d-flex justify-content-between align-items-center mb-3">
     <form [formGroup]="searchForm" class="d-flex">
       <input type="text" class="form-control me-2" formControlName="searchQuery" placeholder="Search" (keyup)="searchStores()">
@@ -29,12 +30,12 @@
           </td>
           <td style="word-wrap: break-word;">{{ store.description }}</td>
           <td>
-            <c-badge *ngIf="store.status === 'pending'" color="warning" shape="rounded-pill">Pending</c-badge>
+            <c-badge *ngIf="store.status === 'rejected'" color="danger" shape="rounded-pill">Rejected</c-badge>
           </td>
           <td>{{ store.ownerName }}</td>
           <td>
-            <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" (click)="approveStore(store._id)" *ngIf="store.status !== 'rejected'">Approve</button>
-            <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" (click)="rejectStore(store._id)" *ngIf="store.status !== 'rejected'">Reject</button>
+            <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold"
+            (click)="deleteStore(store._id)">Delete</button>
           </td>
         </tr>
       </tbody>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AllrestaurantComponent } from './allrestaurant/allrestaurant.component';
 import { RequestStoreComponent } from './request-store/request-store.component';
+import { RejectedStoreComponent } from './rejected-store/rejected-store.component';
 
 const routes: Routes = [{
   path: '',
@@ -26,6 +27,13 @@ const routes: Routes = [{
       component: RequestStoreComponent,
       data: {
         title: 'Request Store'
+      }
+    },
+    {
+      path: 'rejectedstore',
+      component: RejectedStoreComponent,
+      data: {
+        title: 'Rejected Store'
       }
     },
     

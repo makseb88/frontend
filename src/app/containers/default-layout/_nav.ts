@@ -16,11 +16,11 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cil-user' },
     children: [
       {
-        name: 'list owners',
+        name: 'List Owners',
         url: '/user/owner'
       },
       {
-        name: 'add owner',
+        name: 'Add Owner',
         url: '/user/addOwner'
       },
 
@@ -36,8 +36,12 @@ export const navItems: INavData[] = [
         url: '/stores/allstore'
       },
       {
-        name: 'Request stores',
+        name: 'Requested stores',
         url: '/stores/requeststore'
+      },
+      {
+        name: 'Rejected stores',
+        url: '/stores/rejectedstore'
       },
 
 
