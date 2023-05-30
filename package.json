@@ -37,6 +37,8 @@
     "@coreui/icons-angular": "~4.4.7",
     "@coreui/utils": "^2.0.1",
     "@ng-bootstrap/ng-bootstrap": "^14.2.0",
+    "@ngx-translate/core": "^15.0.0",
+    "@ngx-translate/http-loader": "^8.0.0",
     "angular-font-awesome": "^3.1.2",
     "bootstrap": "^5.2.3",
     "chart.js": "^3.9.1",

@@ -3,7 +3,9 @@ import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@a
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import {
   PERFECT_SCROLLBAR_CONFIG,
@@ -89,6 +91,13 @@ const APP_CONTAINERS = [
     ListGroupModule,
     CardModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
     
   ],
   providers: [
@@ -106,4 +115,7 @@ const APP_CONTAINERS = [
   bootstrap: [AppComponent],
 })
 export class AppModule {
+}
+export function httpTranslateLoader(http: HttpClient){
+  return new TranslateHttpLoader(http);
 }

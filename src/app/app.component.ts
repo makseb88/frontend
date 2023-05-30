@@ -4,6 +4,8 @@ import { Router, NavigationEnd } from '@angular/router';
 import { IconSetService } from '@coreui/icons-angular';
 import { iconSubset } from './icons/icon-subset';
 import { Title } from '@angular/platform-browser';
+import {TranslateService} from '@ngx-translate/core'
+
 
 @Component({
   selector: 'app-root',
@@ -15,11 +17,14 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private titleService: Title,
-    private iconSetService: IconSetService
+    private iconSetService: IconSetService,
+    public translate: TranslateService
   ) {
     titleService.setTitle(this.title);
     // iconSet singleton
     iconSetService.icons = { ...iconSubset };
+    translate.addLangs(['en','fr']);
+    translate.setDefaultLang('en');
   }
 
   ngOnInit(): void {
@@ -28,5 +33,9 @@ export class AppComponent implements OnInit {
         return;
       }
     });
+  }
+
+  switchLanguage(lang: string){
+    this.translate.use(lang);
   }
 }
