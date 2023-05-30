@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     // iconSet singleton
     iconSetService.icons = { ...iconSubset };
     translate.addLangs(['en','fr']);
-    translate.setDefaultLang('en');
+    translate.setDefaultLang('fr');
   }
 
   ngOnInit(): void {

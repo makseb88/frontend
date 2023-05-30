@@ -1,19 +1,19 @@
 <div class="d-flex justify-content-between align-items-center mb-3">
     <form [formGroup]="searchForm" class="d-flex">
-      <input type="text" class="form-control me-2" formControlName="searchQuery" placeholder="Search" (input)="searchOwners()">
+      <input type="text" class="form-control me-2" formControlName="searchQuery" placeholder="{{'search'| translate}}" (input)="searchOwners()">
     </form>
-    <button type="button" class="btn btn-primary" (click)="addOwner()">Add Owner</button>
+    <button type="button" class="btn btn-primary" (click)="addOwner()">{{ 'addOwner' | translate }}</button>
   </div>
   
   <div class="table-responsive">
     <table class="table align-middle mb-0 bg-white">
       <thead class="bg-light">
         <tr>
-          <th>Name</th>
-          <th>Phone</th>
-          <th>Status</th>
-          <th>Stores</th>
-          <th>Actions</th>
+          <th>{{'name'| translate}}</th>
+          <th>{{'phone'| translate}}</th>
+          <th>{{'status'| translate}}</th>
+          <th>{{'stores'| translate}}</th>
+          <th>{{'actions'| translate}}</th>
         </tr>
       </thead>
       <tbody>
@@ -31,23 +31,23 @@
             <p class="fw-normal mb-1">{{ owner.phoneNumber }}</p>
           </td>
           <td>
-            <c-badge *ngIf="owner.status === 'active'" color="primary" shape="rounded-pill">Active</c-badge>
-            <c-badge *ngIf="owner.status === 'pending'" color="warning" shape="rounded-pill">Pending</c-badge>
-            <c-badge *ngIf="owner.status === 'suspended'" color="danger" shape="rounded-pill">Suspended</c-badge>
+            <c-badge *ngIf="owner.status === 'active'" color="primary" shape="rounded-pill">{{'active'|translate}}</c-badge>
+            <c-badge *ngIf="owner.status === 'pending'" color="warning" shape="rounded-pill">{{'pending'|translate}}</c-badge>
+            <c-badge *ngIf="owner.status === 'suspended'" color="danger" shape="rounded-pill">{{'suspended'|translate}}</c-badge>
           </td>
   
           <td>{{ owner.stores.length }}</td>
           <td>
             <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" (click)="openModal(ownerModal, owner)">
-              Show
+              {{'show'|translate}}
             </button>
   
             <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" (click)="confirmatioDisableOwner(owner)">
-              Disable
+              {{'disable'|translate}}
             </button>
   
             <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" (click)="confirmationIonenableOwner(owner)">
-              Enable
+              {{'enable'|translate}}
             </button>
           </td>
         </tr>
@@ -55,7 +55,7 @@
     </table>
   </div>
 
-  <div *ngIf="noResultsFound" class="text-center">Data not found</div>
+  <div *ngIf="noResultsFound" class="text-center">{{'noDataFaound' | translate}}</div>
 
   
   <div class="d-flex justify-content-center mt-4">

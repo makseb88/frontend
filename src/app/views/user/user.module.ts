@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastModule,ProgressModule,SpinnerModule  } from '@coreui/angular';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { ImgModule } from '@coreui/angular';
 
@@ -52,7 +54,7 @@ import { ImgModule } from '@coreui/angular';
     NgbPaginationModule,
     FormsModule,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, TranslateModule
     
         
     

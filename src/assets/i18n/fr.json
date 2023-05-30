@@ -1,4 +1,21 @@
 {
     "siteTitle": "Application angular multilingue",
-    "welcome": "Bienvenue"
+    "welcome": "Bienvenue",
+    "addOwner": "Ajouter Proprietaire",
+    "phone": "Téléphone",
+    "name": "Nom",
+    "status": "Status",
+    "stores": "Magasin",
+    "actions": "Actions",
+    "noDataFaound": "Données introuvables",
+    "show": "Voir",
+    "enable": "Activer",
+    "disable": "Désactiver",
+    "active":"Active",
+    "pending": "En attente",
+    "suspended": "Suspendu",
+    "rejected": "rejeté",
+    "search": "Chercher",
+    "dashboard": "Tableau de bord"
+
 }

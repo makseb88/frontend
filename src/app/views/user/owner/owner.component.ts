@@ -11,6 +11,8 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NgbPaginationConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AppComponent } from 'src/app/app.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-owner',
@@ -40,7 +42,8 @@ export class OwnerComponent implements OnInit {
     private modalService: BsModalService,
     private paginationConfig: NgbPaginationConfig,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private translate: TranslateService
   ) {
     paginationConfig.pageSize = 5;
     paginationConfig.boundaryLinks = true;
@@ -162,4 +165,9 @@ export class OwnerComponent implements OnInit {
     this.noResultsFound = this.filteredOwners.length === 0;
 
   }
+
+  switchLanguage(lang: string){
+    this.translate.use(lang);
+  }
+
 }

@@ -1,4 +1,22 @@
 {
     "siteTitle": "Multilingual angular application",
-    "welcome": "Welcome"
+    "welcome": "Welcome",
+    "addOwner": "Add Owner",
+    "phone": "Phone",
+    "name": "Name",
+    "status": "Status",
+    "stores": "Stores",
+    "actions": "Actions",
+    "noDataFaound": "Data not found",
+    "show": "Show",
+    "enable": "Enable",
+    "disable": "Disable",
+    "active":"Active",
+    "pending": "Pending",
+    "suspended": "Suspended",
+    "rejected": "Rejected",
+    "search": "Search",
+    "dashboard": "Dashboard"
+
+
 }

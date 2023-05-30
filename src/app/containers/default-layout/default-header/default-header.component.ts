@@ -4,7 +4,11 @@ import {AuthService} from '../../../services/authservice'
 import { ClassToggleService, HeaderComponent } from '@coreui/angular';
 import { NgModule } from '@angular/core';
 import { Router } from '@angular/router';
-import { User} from '../../../modles/user'
+import { User} from '../../../modles/user';
+import { AppComponent } from 'src/app/app.component';
+import { TranslateService } from '@ngx-translate/core';
+
+
 @Component({
   selector: 'app-default-header',
   templateUrl: './default-header.component.html',
@@ -16,8 +20,15 @@ export class DefaultHeaderComponent extends HeaderComponent {
   public newMessages = new Array(4)
   public newTasks = new Array(5)
   public newNotifications = new Array(5)
+
   
-  constructor(  private router: Router,private classToggler: ClassToggleService, private authService: AuthService) {
+  constructor(  
+    private router: Router,
+    private classToggler: ClassToggleService, 
+    private authService: AuthService,
+    private appComponent: AppComponent,
+    private translate: TranslateService) {
+      
     super();
     
   }
@@ -35,6 +46,10 @@ export class DefaultHeaderComponent extends HeaderComponent {
  
   logout(): void {
     this.router.navigateByUrl('/logout');
+  }
+
+  switchLanguage(lang: string){
+    this.translate.use(lang);
   }
   
  

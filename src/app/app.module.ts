@@ -61,6 +61,8 @@ const APP_CONTAINERS = [
   DefaultLayoutComponent,
 ];
 
+
+
 @NgModule({
   declarations: [AppComponent, ...APP_CONTAINERS, LogoutComponent, ],
   imports: [
@@ -92,6 +94,7 @@ const APP_CONTAINERS = [
     CardModule,
     HttpClientModule,
     TranslateModule.forRoot({
+      defaultLanguage: 'fr',
       loader: {
         provide: TranslateLoader,
         useFactory: httpTranslateLoader,

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { navItems } from './_nav';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,5 +16,9 @@ export class DefaultLayoutComponent {
     suppressScrollX: true,
   };
 
-  constructor() {}
+  constructor(private translate: TranslateService) {}
+
+  switchLanguage(lang: string){
+    this.translate.use(lang);
+  }
 }
