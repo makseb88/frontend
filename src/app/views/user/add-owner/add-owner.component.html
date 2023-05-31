@@ -3,14 +3,14 @@
     (timer)="onTimerChange($event)"
     [visible]="visible">
     <c-toast-header>
-      congratulation
+      {{'congratulation'|translate}}
     </c-toast-header>
     <c-toast-body>
-      <p>Owner successfully added</p>
+      <p>{{'messageAddedOwner'|translate}}</p>
   
       <button cButton class="m-1" style="width: 100%;" disabled>
         <c-spinner aria-hidden="true" size="sm"></c-spinner>
-        Loading...
+        {{'loading'|translate}}
       </button>
     </c-toast-body>
   </c-toast>

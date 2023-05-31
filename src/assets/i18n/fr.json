@@ -35,7 +35,11 @@
     "messagePhoneRequered": "Numéro de téléphone est requis",
     "messagePasswordRequered": "Mot de passe est requis",
     "messageMatchRequered": "Les mots de passe doivent correspondre",
-    "messagePAsswordLongRequered": "Le mot de passe doit être au moins de 6 caractères"
+    "messagePAsswordLongRequered": "Le mot de passe doit être au moins de 6 caractères",
+    "congratulation": "Félicitation",
+    "messageAddedOwner": "Propriétaire ajouté avec succès",
+    "loading": "Chargement..."
+
 
 
   }
