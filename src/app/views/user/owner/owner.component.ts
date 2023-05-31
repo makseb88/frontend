@@ -166,8 +166,6 @@ export class OwnerComponent implements OnInit {
 
   }
 
-  switchLanguage(lang: string){
-    this.translate.use(lang);
-  }
+ 
 
 }

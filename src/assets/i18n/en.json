@@ -16,7 +16,36 @@
     "suspended": "Suspended",
     "rejected": "Rejected",
     "search": "Search",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "ecommerce": "E-commerce",
+    "firstName": "First Name",
+    "lastName": " Last Name",
+    "gender": "Gender",
+    "male": "Male",
+    "female": "Female",
+    "phoneNumber": "Phone Number",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "btnAddOwner": "Add",
+    "messageNameRequered": "First Name is required",
+    "messageLastNameRequered": "Last Name is required",
+    "messageEmailRequered": "Email is required",
+    "messageValideEmail":"Email must be a valid email address",
+    "messagePhoneRequered": "Phone number is required",
+    "messagePasswordRequered": "Password is required",
+    "messageMatchRequered": "Passwords must match",
+    "messagePAsswordLongRequered": "Password must be at least 6 characters"
+
+    
+
+
+
+
+
+
+    
+
 
 
 }

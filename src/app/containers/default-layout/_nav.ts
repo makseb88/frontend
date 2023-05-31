@@ -1,21 +1,18 @@
 import { INavData } from '@coreui/angular';
-import { TranslateService } from '@ngx-translate/core';
-
-
-
 
 export const navItems: INavData[] = [
   {
-    name: 'Dashboard',
+    name: 'dashboard',
     url: '/dashboard',
     iconComponent: { name: 'cil-speedometer' },
     badge: {
       color: 'info',
       text: 'NEW'
-    }
+    },
+    
   },
   {
-    name: 'Users',
+    name: 'users',
     url: '/user',
     iconComponent: { name: 'cil-user' },
     children: [
@@ -27,11 +24,10 @@ export const navItems: INavData[] = [
         name: 'Add Owner',
         url: '/user/addOwner'
       },
-
     ]
   },
   {
-    name: 'Stores',
+    name: 'stores',
     url: '/stores',
     iconComponent: { name: 'cil-user' },
     children: [
@@ -47,12 +43,6 @@ export const navItems: INavData[] = [
         name: 'Rejected stores',
         url: '/stores/rejectedstore'
       },
-
-
     ]
   },
-
 ];
-
-
-

@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/app/environments/environment';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+
 
 export function MustMatch(controlName: string, matchingControlName: string) {
   return (formGroup: FormGroup) => {
@@ -65,7 +67,8 @@ export class AddOwnerComponent implements OnInit{
   private apiUrl =environment.serverUrl + '/admin/addOwner';
 
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder ,private router: Router,) {}
+  constructor(private http: HttpClient, private formBuilder: FormBuilder ,private router: Router,private translate: TranslateService
+    ) {}
 
   toggleLiveDemo() {
     this.visible = !this.visible;
