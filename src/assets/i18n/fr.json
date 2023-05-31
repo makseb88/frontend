@@ -38,7 +38,11 @@
     "messagePAsswordLongRequered": "Le mot de passe doit être au moins de 6 caractères",
     "congratulation": "Félicitation",
     "messageAddedOwner": "Propriétaire ajouté avec succès",
-    "loading": "Chargement..."
+    "loading": "Chargement...",
+    "disableOwnermessage": "Voulez vous désactiver ce propriétaire",
+    "enableOwnermessage": "Voulez vous activer ce propriétaire"
+
+
 
 
 

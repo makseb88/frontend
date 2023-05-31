@@ -92,28 +92,35 @@ export class OwnerComponent implements OnInit {
     public visible = false;
 
 
-  confirmationIonenableOwner( owner: User) {
-    let text = "Press a button!\nEither OK or Cancel.";
-    if (confirm(text) == true) {
-      text = "You pressed OK!";
-      this.enableOwner(owner)
-    } else {
-      text = "You canceled!";
-    }
-   
- 
-  
+
+
+  confirmationIonenableOwner(owner: User) {
+    this.translate.get('enableOwnermessage').subscribe((translation: string) => {
+      let text = translation;
+      if (confirm(text) == true) {
+        this.enableOwner(owner)
+      } else {
+        text = "You canceled!";
+      }
+    });
   }
+  
+
+
+
+
   confirmatioDisableOwner( owner: User)
   {
-    let text = "Press a button!\nEither OK or Cancel.";
+    this.translate.get('disableOwnermessage').subscribe((translation: string) => {
+      let text = translation;
     if (confirm(text) == true) {
       text = "You pressed OK!";
       this.disableOwner(owner)
     } else {
       text = "You canceled!";
     }
-  }
+  });
+}
 
   disableOwner(owner: User): void {
     const token = localStorage.getItem('token');
