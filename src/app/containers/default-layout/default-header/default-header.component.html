@@ -37,21 +37,28 @@
             <svg cIcon name="cilEnvelopeOpen" size="lg"></svg>
           </a>
         </c-nav-item>
+        <c-nav-item>
+          <select class="form-control" #selectedLang (change)="switchLanguage(selectedLang.value)">
+            <option value="fr">
+              <span class="flag-icon flag-icon-fr"></span> Français
+            </option>
+            <option value="en">
+              <span class="flag-icon flag-icon-us"></span> English
+            </option>
+            <!-- Ajoutez d'autres options pour les langues avec leurs drapeaux correspondants -->
+          </select>
+        </c-nav-item>
       </c-header-nav>
       <c-header-nav class="ms-3">
         <ng-container *ngTemplateOutlet="userDropdown"></ng-container>
       </c-header-nav>
-      <div>
-        <div>
-          <select class="form-control" #selectedLang (change)="switchLanguage(selectedLang.value)">
-            <option value="fr">Français</option>
-            <option value="en">English</option>
-            <!-- Autres langues disponibles -->
-          </select>
-        </div>
+      
+      {{'welcome' | translate}}, {{ user.firstName }}!
+
+
+      
         
-        {{'welcome' | translate}}, {{ user.firstName }}!
-      </div>
+
       
     </c-container>
     <c-container [fluid]="true">
@@ -167,4 +174,6 @@
     </ul>
   </c-dropdown>
 </ng-template>
+
+
 
