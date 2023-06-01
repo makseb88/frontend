@@ -40,7 +40,9 @@
     "messageAddedOwner": "Owner successfully added",
     "loading": "Loading...",
     "disableOwnermessage": "Do you want to deactivate this owner",
-    "enableOwnermessage": "Voulez vous activer ce propriétaire"
+    "enableOwnermessage": "Voulez vous activer ce propriétaire",
+    "previous": "Previous",
+    "next": "Next"
 
 
 

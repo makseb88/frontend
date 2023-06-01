@@ -40,7 +40,9 @@
     "messageAddedOwner": "Propriétaire ajouté avec succès",
     "loading": "Chargement...",
     "disableOwnermessage": "Voulez vous désactiver ce propriétaire",
-    "enableOwnermessage": "Voulez vous activer ce propriétaire"
+    "enableOwnermessage": "Voulez vous activer ce propriétaire",
+    "previous": "Précédent",
+    "next": "Suivant"
 
 
 

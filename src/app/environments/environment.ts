@@ -1,5 +1,5 @@
 export const environment = {
     production: false,
-    serverUrl: 'http://localhost:8000',
+    serverUrl: 'http://admin.eatorder.fr',
     apiKey: 'your-api-key'
   };

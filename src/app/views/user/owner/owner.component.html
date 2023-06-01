@@ -59,8 +59,12 @@
 
   
   <div class="d-flex justify-content-center mt-4">
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <pagination-controls (pageChange)="p = $event"
+                          previousLabel="{{ 'previous' | translate }}"
+                          nextLabel="{{ 'next' | translate }}">
+    </pagination-controls>
   </div>
+  
     
 
 
